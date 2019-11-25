@@ -1,15 +1,25 @@
 import React,{useState} from 'react';
+
+// import { useRouter } from 'next/router';
+// import Link from 'next/link';
 import Head from 'next/head';
 
-import Notes from "./components/Notes.jsx";
-import Form from "./components/Form.jsx";
-import './styles/index.scss';
+import Header from "../components/Header.jsx";
+import Form from "../components/Form.jsx";
+import Notes from "../components/NotesContainer.jsx";
+import '../styles/index.scss';
 
-
+const dummyData = [
+  { note: "Finish this app.", isComplete: false }, 
+  { note: "Git Commit", isComplete: false }, 
+  { note: "Git push", isComplete: false }, 
+  { note: "Git High", isComplete: false }
+]
 
 const Index = () => {
+  // const router = useRouter();
   
-  const [notes, setNotes] = useState([{ note: "Finish this app.", isComplete: false }, { note: "Git Commit", isComplete: false }, { note: "Git push", isComplete: false }, { note: "Git High", isComplete: false }])
+  const [notes, setNotes] = useState(dummyData)
   
   return (
     <>
@@ -19,9 +29,11 @@ const Index = () => {
       </Head>
 
       <section className="app">
-        <h1>Next.js To-Do App!</h1>
-        <Notes notes={notes}/>
+        <Header notes={notes} setNotes={setNotes} />
+
+        <Notes notes={notes} />
         <Form  setNotes={(newNote)=> setNotes([...notes, {note:newNote, isCompete: false}])} />
+
       </section>
     </>
   )
@@ -29,7 +41,6 @@ const Index = () => {
 
 
 
-
-
 export default Index;
+
 

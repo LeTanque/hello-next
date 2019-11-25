@@ -10,5 +10,20 @@ body {
   color: red;
   user-select: none; }
 
+a {
+  text-decoration: none;
+  color: white; }
+  a:hover {
+    color: #eeeeee; }
+
+nav {
+  display: flex;
+  margin: 25px 0; }
+  nav h1 {
+    line-height: 1;
+    margin: 0; }
+  nav .nav-item {
+    margin: 0 10px 0 0; }
+
 
 /*# sourceMappingURL=styles.chunk.css.map*/
